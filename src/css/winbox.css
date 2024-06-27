@@ -85,7 +85,7 @@ body > .wb-body {
   right: -5px;
   bottom: 0;
   width: 10px;
-  cursor: w-resize;
+  cursor: e-resize;
   z-index: 2;
 }
 .wb-s {
@@ -94,7 +94,7 @@ body > .wb-body {
   left: 0;
   right: 0;
   height: 10px;
-  cursor: n-resize;
+  cursor: s-resize;
   z-index: 2;
 }
 .wb-w {
@@ -130,7 +130,7 @@ body > .wb-body {
   left: -5px;
   width: 15px;
   height: 15px;
-  cursor: ne-resize;
+  cursor: sw-resize;
   z-index: 2;
 }
 .wb-se {
@@ -139,7 +139,7 @@ body > .wb-body {
   right: -5px;
   width: 15px;
   height: 15px;
-  cursor: nw-resize;
+  cursor: se-resize;
   z-index: 2;
 }
 .wb-control {
