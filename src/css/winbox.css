@@ -3,9 +3,15 @@
   left: 0;
   top: 0;
   background: #0050ff;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
   /* using transform make contents blur when applied and requires more gpu memory */
-  transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    left 0.3s,
+    top 0.3s;
   transition-timing-function: cubic-bezier(0.3, 1, 0.3, 1);
   /* contain "strict" does not make overflow contents selectable */
   contain: layout size;
@@ -236,7 +242,7 @@ body.wb-lock iframe {
   pointer-events: none;
 }
 .winbox.modal:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -246,7 +252,7 @@ body.wb-lock iframe {
   border-radius: inherit;
 }
 .winbox.modal:after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50vh;
   left: -50vw;
