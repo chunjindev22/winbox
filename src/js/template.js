@@ -27,7 +27,7 @@ const templateHTML =
   "<div class=wb-se></div>" +
   "<div class=wb-sw></div>";
 
-  //'</div>'
+//'</div>'
 
 export default function (tpl) {
   if (!template) {
