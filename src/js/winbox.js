@@ -373,13 +373,13 @@ function setup() {
   addListener(
     body,
     "mousedown",
-    function (event) {
+    function () {
       window_clicked = false;
     },
     true
   );
 
-  addListener(body, "mousedown", function (event) {
+  addListener(body, "mousedown", function () {
     if (!window_clicked) {
       const stack_length = stack_win.length;
 
@@ -441,7 +441,7 @@ function register(self) {
   addListener(
     self.dom,
     "mousedown",
-    function (event) {
+    function () {
       window_clicked = true;
     },
     true
@@ -450,7 +450,7 @@ function register(self) {
   addListener(
     self.body,
     "mousedown",
-    function (event) {
+    function () {
       // stop propagation would disable global listeners used inside window contents
       // use event bubbling for this listener to skip this handler by the other click listeners
       self.focus();
