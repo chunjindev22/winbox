@@ -9,6 +9,7 @@
 <a href="https://nextapps-de.github.io/winbox/">Demo</a> &ensp;&bull;&ensp; <a href="#started">Getting Started</a> &ensp;&bull;&ensp; <a href="#options">Options</a> &ensp;&bull;&ensp; <a href="#api">API</a> &ensp;&bull;&ensp; <a href="#themes">Themes</a> &ensp;&bull;&ensp; <a href="#customize">Customize</a> &ensp;&bull;&ensp; <a href="CHANGELOG.md">Changelog</a>
 
 <a name="demo"></a>
+
 ### Live Demo and Code Examples
 
 <a href="https://nextapps-de.github.io/winbox/">https://nextapps-de.github.io/winbox/ </a>
@@ -43,7 +44,9 @@ Thanks a lot,
 Thomas (ts-thomas)
 
 <a name="addon"></a>
+
 ### Plugins / Add-ons / Extensions
+
 Vue 2 and 3 (a wrapper component that adds the ability to mount Vue components in WinBox.js):<br>
 <a href="https://github.com/wobsoriano/vue-winbox">https://github.com/wobsoriano/vue-winbox</a>
 
@@ -51,9 +54,10 @@ A React controlled component for WinBox.js, with full Reactful props and state.:
 <a href="https://github.com/rickonono3/react-winbox">https://github.com/rickonono3/react-winbox</a>
 
 <a name="started"></a>
+
 ## Getting Started
 
-__Get Latest Stable Build (Recommended):__
+**Get Latest Stable Build (Recommended):**
 
 <table>
     <tr>
@@ -112,7 +116,7 @@ __Get Latest Stable Build (Recommended):__
     </tr>
 </table>
 
-__Get Latest (NPM):__
+**Get Latest (NPM):**
 
 ```cmd
 npm install winbox
@@ -126,10 +130,10 @@ A best practice is to load the library as async and use some modern preloading m
 
 ```html
 <html>
-<head>
-    <link rel="preload" href="winbox.bundle.min.js" as="script">
-</head>
-<body>
+  <head>
+    <link rel="preload" href="winbox.bundle.min.js" as="script" />
+  </head>
+  <body>
     <!--
     
     HTML CONTENT
@@ -139,7 +143,7 @@ A best practice is to load the library as async and use some modern preloading m
     <script src="winbox.bundle.min.js" async></script>
     <!-- YOUR SCRIPT -->
     <script src="my-script.js" defer></script>
-</body>
+  </body>
 </html>
 ```
 
@@ -151,11 +155,11 @@ The non-bundled version needs to load js and css separately (css already include
 
 ```html
 <html>
-<head>
-    <link rel="stylesheet" href="winbox.min.css">
+  <head>
+    <link rel="stylesheet" href="winbox.min.css" />
     <script src="winbox.min.js"></script>
-</head>
-<body></body>
+  </head>
+  <body></body>
 </html>
 ```
 
@@ -167,7 +171,7 @@ The ES6 modules are located in `src/js/`. But you need to load the stylesheet fi
 
 ```html
 <head>
-    <link rel="stylesheet" href="dist/css/winbox.min.css">
+  <link rel="stylesheet" href="dist/css/winbox.min.css" />
 </head>
 ```
 
@@ -188,6 +192,7 @@ You can also load modules via CDN, e.g.:
 The ES6 modules are not minified. Please use your favored bundler or build tool for this purpose.
 
 <a name="api"></a>
+
 ## Overview
 
 Constructor:
@@ -271,6 +276,7 @@ Callback methods:
 - <a href="#winbox.onrestore">winbox.**onrestore**</a>
 
 <a name="options" id="options"></a>
+
 ## Options
 
 <table>
@@ -482,6 +488,7 @@ Callback methods:
 ## Create and Setup Window
 
 <a name="winbox.new"></a>
+
 #### Basic Window
 
 > When no `root` was specified the window will append to the `document.body`.
@@ -491,17 +498,20 @@ new WinBox("Window Title");
 ```
 
 Alternatively:
+
 ```js
 WinBox.new("Window Title");
 ```
 
 Alternatively:
+
 ```js
 new WinBox({ title: "Window Title" });
 ```
 
 Alternatively:
 <a name="winbox.setTitle"></a>
+
 ```js
 var winbox = WinBox();
 winbox.setTitle("Window Title");
@@ -513,7 +523,7 @@ winbox.setTitle("Window Title");
 
 ```js
 new WinBox("Window Title", {
-    root: document.body
+  root: document.body,
 });
 ```
 
@@ -523,12 +533,13 @@ new WinBox("Window Title", {
 
 ```js
 new WinBox("Custom Color", {
-    background: "#ff005d"
+  background: "#ff005d",
 });
 ```
 
 Alternatively:
 <a name="winbox.setBackground"></a>
+
 ```js
 var winbox = new WinBox("Custom Color");
 winbox.setBackground("#ff005d");
@@ -540,16 +551,17 @@ winbox.setBackground("#ff005d");
 
 ```js
 new WinBox({
-    title: "Custom Border",
-    border: "1em"
+  title: "Custom Border",
+  border: "1em",
 });
 ```
 
 You can also define multiple border values (the order is: top, right, bottom, left):
+
 ```js
 new WinBox({
-    title: "Custom Border",
-    border: "0 1em 15px 1em"
+  title: "Custom Border",
+  border: "0 1em 15px 1em",
 });
 ```
 
@@ -559,13 +571,14 @@ new WinBox({
 
 ```js
 new WinBox({
-    title: "Custom Icon",
-    icon: "img/icon.svg"
+  title: "Custom Icon",
+  icon: "img/icon.svg",
 });
 ```
 
 Alternatively:
 <a name="winbox.setIcon"></a>
+
 ```js
 var winbox = new WinBox("Custom Icon");
 winbox.setIcon("img/icon.svg");
@@ -573,61 +586,64 @@ winbox.setIcon("img/icon.svg");
 
 See below in the style section to find out how to easily customize the titlebar icon style via css.
 
-####  Custom Viewport
+#### Custom Viewport
 
 > Define the available area (relative to the document) in which the window can move or could be resized (supports units "px" and "%").
 
 ```js
 new WinBox("Custom Viewport", {
-    top: "50px",
-    right: "5%",
-    bottom: 50,
-    left: "5%"
+  top: "50px",
+  right: "5%",
+  bottom: 50,
+  left: "5%",
 });
 ```
 
 Alternatively (but just support numbers!):
+
 ```js
 var winbox = new WinBox("Custom Viewport");
 
 winbox.top = 50;
 winbox.right = 200;
 winbox.bottom = 0;
-winbox.left = 200
+winbox.left = 200;
 ```
 
 <a name="winbox.move"></a><a name="winbox.resize"></a>
+
 #### Custom Position / Size
 
 > Supports keywords `"right"` for x-axis, `"bottom"` for y-axis, `"center"` for both, units `px` and `%` also for both.
 
 ```js
 new WinBox("Custom Viewport", {
-    x: "center",
-    y: "center",
-    width: "50%",
-    height: "50%"
+  x: "center",
+  y: "center",
+  width: "50%",
+  height: "50%",
 });
 ```
 
 ```js
 new WinBox("Custom Viewport", {
-    x: "right",
-    y: "bottom",
-    width: "200px",
-    height: "200px"
+  x: "right",
+  y: "bottom",
+  width: "200px",
+  height: "200px",
 });
 ```
 
 Alternatively (also supports same units and keywords as above):
+
 ```js
 var winbox = new WinBox("Custom Viewport");
 
-winbox.resize("50%", "50%")
-      .move("center", "center");
+winbox.resize("50%", "50%").move("center", "center");
 ```
 
 Alternatively (just support numeric values as `px` when directly assigned!):
+
 ```js
 var winbox = new WinBox("Custom Viewport");
 
@@ -643,28 +659,31 @@ winbox.move();
 > In some cases you need to execute `.resize()` before `.move()` to properly apply relative positions which is taking the windows size into account.
 
 <a name="winbox.overflow"></a>
+
 #### Overflow Window
 
 Allow the window to move outside the viewport borders on left, right and bottom (default is "false").
 
 ```js
 new WinBox({
-    title: "Overflow Window",
-    overflow: true
+  title: "Overflow Window",
+  overflow: true,
 });
 ```
 
 <a name="winbox.modal"></a>
+
 #### Modal Window
 
 ```js
 new WinBox({
-    title: "Modal Window",
-    modal: true
+  title: "Modal Window",
+  modal: true,
 });
 ```
 
 <a name="winbox.stack"></a>
+
 #### Window Stack
 
 The window stack gets you an ordered list of every created window which wasn't already closed. The last focused windows is placed as last entry in the Array.
@@ -680,6 +699,7 @@ const stack = WinBox.stack(); // [B, C, A]
 ```
 
 <a name="themes"></a>
+
 #### Themes
 
 > Feel free to create your own themes and share them with us.
@@ -690,9 +710,9 @@ Load the corresponding css files (or use a bundler), e.g.:
 
 ```html
 <head>
-    <link rel="stylesheet" href="dist/css/winbox.min.css">
-    <link rel="stylesheet" href="dist/css/themes/modern.min.css">
-    <script src="dist/js/winbox.min.js"></script>
+  <link rel="stylesheet" href="dist/css/winbox.min.css" />
+  <link rel="stylesheet" href="dist/css/themes/modern.min.css" />
+  <script src="dist/js/winbox.min.js"></script>
 </head>
 ```
 
@@ -700,8 +720,8 @@ Just add the name of the theme via `class`:
 
 ```js
 var winbox = new WinBox({
-    title: "Theme: Modern",
-    class: "modern"
+  title: "Theme: Modern",
+  class: "modern",
 });
 ```
 
@@ -718,29 +738,31 @@ You can change themes during the lifetime of the window.
 
 #### Set innerHTML
 
-> Do not forget to sanitize any user inputs which is part of the __html__ as this can lead to unintended XSS!
+> Do not forget to sanitize any user inputs which is part of the **html** as this can lead to unintended XSS!
 
 ```js
 new WinBox("Set innerHTML", {
-    html: "<h1>Lorem Ipsum</h1>"
+  html: "<h1>Lorem Ipsum</h1>",
 });
 ```
 
 Alternatively:
+
 ```js
 var winbox = new WinBox("Set innerHTML");
 winbox.body.innerHTML = "<h1>Lorem Ipsum</h1>";
 ```
 
 <a name="winbox.mount"></a>
+
 #### Mount DOM (Cloned)
 
 > When cloning you can easily create multiple window instances of the same content in parallel.
 
 ```html
 <div id="content">
-    <h1>Lorem Ipsum</h1>
-    <p>Lorem ipsum [...]</p>
+  <h1>Lorem Ipsum</h1>
+  <p>Lorem ipsum [...]</p>
 </div>
 ```
 
@@ -748,11 +770,12 @@ winbox.body.innerHTML = "<h1>Lorem Ipsum</h1>";
 var node = document.getElementById("content");
 
 new WinBox("Mount DOM", {
-    mount: node.cloneNode(true)
+  mount: node.cloneNode(true),
 });
 ```
 
 Alternatively:
+
 ```js
 var node = document.getElementById("content");
 var winbox = new WinBox("Mount DOM");
@@ -770,10 +793,10 @@ You can simply use a hidden backstore to hold contents, as well you can use any 
 
 ```html
 <div id="backstore" style="display: none">
-    <div id="content">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum [...]</p>
-    </div>
+  <div id="content">
+    <h1>Lorem Ipsum</h1>
+    <p>Lorem ipsum [...]</p>
+  </div>
 </div>
 ```
 
@@ -781,13 +804,14 @@ You can simply use a hidden backstore to hold contents, as well you can use any 
 var node = document.getElementById("content");
 
 new WinBox("Mount DOM", {
-    mount: node
+  mount: node,
 });
 ```
 
 > Auto-Unmount is a helpful feature which automatically moves back the fragment to the backstore source when closing the window.
 
 Alternatively:
+
 ```js
 var node = document.getElementById("content");
 var winbox = new WinBox("Mount DOM");
@@ -796,14 +820,15 @@ winbox.mount(node);
 ```
 
 <a name="winbox.unmount"></a>
+
 #### Explicit Unmount
 
 ```html
 <div id="backstore" style="display: none">
-    <div id="content">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum [...]</p>
-    </div>
+  <div id="content">
+    <h1>Lorem Ipsum</h1>
+    <p>Lorem ipsum [...]</p>
+  </div>
 </div>
 <div id="backstore-2" style="display: none"></div>
 ```
@@ -841,16 +866,17 @@ Override default auto-unmount behavior when closing the window:
 
 ```js
 new WinBox("Mount DOM", {
-    mount: node,
-    onclose: function(){
-        this.unmount(document.getElementById("backstore-2"));
-    }
+  mount: node,
+  onclose: function () {
+    this.unmount(document.getElementById("backstore-2"));
+  },
 });
 ```
 
 #### Manual Mount Contents
 
 Feel free to use the `winbox.body` directly:
+
 ```js
 var node = document.getElementById("content");
 var winbox = new WinBox("Mount DOM");
@@ -859,19 +885,23 @@ winbox.body.appendChild(node);
 ```
 
 Or delegate it as a root to your templating engine, e.g.:
+
 ```js
 Mikado(template).mount(winbox.body).render(data);
 ```
 
 #### Open URI / URL
 
-> Do not forget to sanitize any user inputs when it is part of the __url__ as this can lead to unintended XSS!
+> Do not forget to sanitize any user inputs when it is part of the **url** as this can lead to unintended XSS!
 
 The onload callback is optionally.
+
 ```js
 new WinBox("Open URL", {
-    url: "https://wikipedia.com",
-    onload: function(){ /* extern page loaded */}
+  url: "https://wikipedia.com",
+  onload: function () {
+    /* extern page loaded */
+  },
 });
 ```
 
@@ -879,10 +909,11 @@ new WinBox("Open URL", {
 
 Alternatively:
 <a name="winbox.setUrl"></a>
+
 ```js
 var winbox = new WinBox("Open URL");
-winbox.setUrl("https://wikipedia.com", function(){ 
-    /* extern page loaded */
+winbox.setUrl("https://wikipedia.com", function () {
+  /* extern page loaded */
 });
 ```
 
@@ -890,6 +921,7 @@ winbox.setUrl("https://wikipedia.com", function(){
 
 <a name="winbox.id"></a><a name="winbox.max"></a><a name="winbox.min"></a><a name="winbox.full"></a><a name="winbox.hidden"></a><a name="winbox.focused"></a>
 Window States / Information:
+
 ```js
 var winbox = new WinBox();
 
@@ -904,6 +936,7 @@ console.log("Current Focused State:", winbox.focused);
 
 <a name="winbox.width"></a><a name="winbox.height"></a><a name="winbox.resize"></a>
 Window Size:
+
 ```js
 var winbox = new WinBox();
 
@@ -917,6 +950,7 @@ console.log("Current Height:", winbox.height);
 
 <a name="winbox.x"></a><a name="winbox.y"></a><a name="winbox.move"></a>
 Window Position:
+
 ```js
 var winbox = new WinBox();
 
@@ -930,6 +964,7 @@ console.log("Current Position Y:", winbox.y);
 
 <a name="winbox.top"></a><a name="winbox.right"></a><a name="winbox.bottom"></a><a name="winbox.left"></a>
 Window Viewport:
+
 ```js
 var winbox = new WinBox();
 
@@ -949,6 +984,7 @@ console.log("Current Viewport Left:", winbox.left);
 
 <a name="winbox.body"></a>
 The window body acts like the `document.body` and has a scroll pane:
+
 ```js
 var winbox = new WinBox();
 winbox.body.innerHTML = "<h1>Lorem Ipsum</h1>";
@@ -956,12 +992,14 @@ winbox.body.innerHTML = "<h1>Lorem Ipsum</h1>";
 
 <a name="winbox.window"></a>
 Get the DOM element from the window outer frame:
+
 ```js
 var winbox = new WinBox();
 var root = winbox.window;
 ```
 
 You also can get the window element by DOM id:
+
 ```js
 var winbox = new WinBox();
 var root = document.getElementById(winbox.id);
@@ -991,6 +1029,7 @@ winbox.toggleClass("my-toggle");
 ```
 
 You can grab the `winbox` instance from the window outer frame DOM element:
+
 ```js
 var winbox = new WinBox();
 // assume you have a DOM reference to the winbox window:
@@ -1007,6 +1046,7 @@ var winbox = new WinBox();
 
 <a name="winbox.focus"></a>
 Focus a window (bring up to front):
+
 ```js
 winbox.focus();
 winbox.focus(true);
@@ -1015,6 +1055,7 @@ winbox.blur(false);
 
 <a name="winbox.blur"></a>
 Blur a focused window:
+
 ```js
 winbox.blur();
 winbox.blur(true);
@@ -1023,6 +1064,7 @@ winbox.focus(false);
 
 <a name="winbox.minimize"></a>
 Set the minimized state of a window:
+
 ```js
 winbox.minimize();
 winbox.minimize(true);
@@ -1031,6 +1073,7 @@ winbox.minimize(false);
 
 <a name="winbox.maximize"></a>
 Set the maximized state of a window:
+
 ```js
 winbox.maximize();
 winbox.maximize(true);
@@ -1039,6 +1082,7 @@ winbox.maximize(false);
 
 <a name="winbox.fullscreen"></a>
 Set the fullscreen state of a window:
+
 ```js
 winbox.fullscreen();
 winbox.fullscreen(true);
@@ -1047,12 +1091,14 @@ winbox.fullscreen(false);
 
 <a name="winbox.restore"></a>
 Restore the state of a window:
+
 ```js
 winbox.restore();
 ```
 
 <a name="winbox.hide"></a>
 Hide a specific window:
+
 ```js
 winbox.hide();
 winbox.hide(true);
@@ -1061,6 +1107,7 @@ winbox.show(false);
 
 <a name="winbox.show"></a>
 Show a specific hidden window:
+
 ```js
 winbox.show();
 winbox.show(true);
@@ -1069,12 +1116,14 @@ winbox.hide(false);
 
 <a name="winbox.close"></a>
 Close and destroy a window:
+
 ```js
 winbox.close();
 ```
 
 <a name="winbox.close"></a>
 Close and destroy a window depending on custom conditional (e.g. by a confirmation status):
+
 ```js
 winbox.close(false || true);
 ```
@@ -1084,11 +1133,12 @@ winbox.close(false || true);
 ```js
 var winbox = WinBox();
 
-winbox.setTitle("Title")
-      .setBackground("#fff")
-      .resize("50%", "50%")
-      .move("center", "center")
-      .mount(document.getElementById("content"));
+winbox
+  .setTitle("Title")
+  .setBackground("#fff")
+  .resize("50%", "50%")
+  .move("center", "center")
+  .mount(document.getElementById("content"));
 ```
 
 > When using "center" as position you need to call `.resize()` before `.move()`.
@@ -1101,84 +1151,88 @@ You can assign callbacks via the option payload when creating a window.
 
 ```js
 var winbox = WinBox({
-    oncreate: function(options){
-        options.autosize = true;
-    },
-    onfocus: function(){
-        this.setBackground("#fff");
-    },
-    onblur: function(){
-        this.setBackground("#999");
-    },
-    onresize: function(width, height){
-        console.log("width:", width, "height:", height);
-    },
-    onfullscreen: function(){
-        this.setBackground("#666");
-    },
-    onminimize: function(){
-        this.setBackground("#999");
-    },
-    onmaximize: function(){
-        this.setBackground("#AAA");
-    },
-    onrestore: function(){
-        this.setBackground("#DDD");
-    },    
-    onmove: function(x, y){
-        console.log("x:", x, "y:", y);
-    },
-    onclose: function(force){
-        // return "true" to skip the closing
-        // return "false" to allow closing
-        // use delegated force parameter optionally
-        return !confirm("Close window?");
-    }
+  oncreate: function (options) {
+    options.autosize = true;
+  },
+  onfocus: function () {
+    this.setBackground("#fff");
+  },
+  onblur: function () {
+    this.setBackground("#999");
+  },
+  onresize: function (width, height) {
+    console.log("width:", width, "height:", height);
+  },
+  onfullscreen: function () {
+    this.setBackground("#666");
+  },
+  onminimize: function () {
+    this.setBackground("#999");
+  },
+  onmaximize: function () {
+    this.setBackground("#AAA");
+  },
+  onrestore: function () {
+    this.setBackground("#DDD");
+  },
+  onmove: function (x, y) {
+    console.log("x:", x, "y:", y);
+  },
+  onclose: function (force) {
+    // return "true" to skip the closing
+    // return "false" to allow closing
+    // use delegated force parameter optionally
+    return !confirm("Close window?");
+  },
 });
 ```
 
 #### The "onclose" callback
 
-> The event `onclose` will be triggered right before closing and __stops__ closing when a callback was applied and returns a __truthy value__.
+> The event `onclose` will be triggered right before closing and **stops** closing when a callback was applied and returns a **truthy value**.
 
 Within your callback function just return `true` to stops the closing or return `false` to perform closing as default.
+
 ```js
-new WinBox({ 
-    onclose: function(){
-        // return "true" to skip the closing
-        // return "false" to allow closing
-        if(do_some_checks()){
-            return true;
-        }
-    } 
+new WinBox({
+  onclose: function () {
+    // return "true" to skip the closing
+    // return "false" to allow closing
+    if (do_some_checks()) {
+      return true;
+    }
+  },
 });
 ```
 
 The `force` parameter from the `winbox.close(boolean)` will be delegated to your callback function as the first parameter. You need to handle the "force" state in your callback function.
 
 ```js
-var winbox = WinBox({ 
-    onclose: function onclose(force){
-        // use delegated force parameter optionally
-        return !force && !confirm("Close window?");
-    } 
+var winbox = WinBox({
+  onclose: function onclose(force) {
+    // use delegated force parameter optionally
+    return !force && !confirm("Close window?");
+  },
 });
 ```
 
 Close the window and execute callback as default (will show the prompt from example above):
+
 ```js
 winbox.close();
 ```
 
 Force closing the window (does not show the prompt from example above):
+
 ```js
 winbox.close(true);
 ```
 
 <a name="control-classes" id="control-classes"></a>
+
 #### Use Control Classes
 
-WinBox provides you some built-in control classes you can pass when creating a window instance. 
+WinBox provides you some built-in control classes you can pass when creating a window instance.
 
 > All control classes from this list could be added or removed during lifetime of the window (after creation). State classes like `max`, `min`, `full`, `hidden` and `focus` could not be changed manually! For this purpose use the WinBox member methods accordingly e.g. `maximize()`, `minimize()`, `hide()`.
 
@@ -1237,18 +1291,20 @@ WinBox provides you some built-in control classes you can pass when creating a w
 > Without the header the user isn't able to move the window frame. It may be useful for creating fixed popups.
 
 Pass in classnames when creating the window to apply behaviour:
+
 ```js
 const winbox = WinBox({
-    class: [ "no-min", "no-max", "no-full", "no-resize", "no-move" ]
+  class: ["no-min", "no-max", "no-full", "no-resize", "no-move"],
 });
 ```
 
 > The example above is a good start to create classical popups.
 
 Alternatively you can use a whitespace separated string:
+
 ```js
 const winbox = WinBox({
-    class: "no-min no-max no-full no-resize no-move"
+  class: "no-min no-max no-full no-resize no-move",
 });
 ```
 
@@ -1258,20 +1314,19 @@ You can add or remove all control classes from above along the window's lifetime
 ```js
 const winbox = WinBox();
 
-winbox.addClass("no-resize")
-      .addClass("no-move");
+winbox.addClass("no-resize").addClass("no-move");
 ```
+
 ```js
-winbox.removeClass("no-resize")
-      .removeClass("no-move");
+winbox.removeClass("no-resize").removeClass("no-move");
 ```
+
 ```js
-winbox.toggleClass("no-resize")
-      .toggleClass("no-move");
+winbox.toggleClass("no-resize").toggleClass("no-move");
 ```
+
 ```js
-const state = winbox.hasClass("no-resize") &&
-              winbox.hasClass("no-move");
+const state = winbox.hasClass("no-resize") && winbox.hasClass("no-move");
 ```
 
 ## Custom Splitscreen
@@ -1280,11 +1335,11 @@ Use the viewport limit to define your own splitscreen areas, e.g. for a simple v
 
 ```js
 new WinBox("Split Left", {
-    right: "50%"
+  right: "50%",
 });
 
 new WinBox("Split Right", {
-    left: "50%"
+  left: "50%",
 });
 ```
 
@@ -1321,58 +1376,64 @@ The splitscreen from above will look like this grid:
 You can set the values for the viewport dynamically, doing this makes it possible to size the grid dynamically and also change the grid schema.
 
 <a name="winbox.addControl"></a>
+
 ## Custom Controls
 
 This example will add a custom control button `.wb-like` to the window heading toolbar along some CSS for icon styling:
+
 ```css
 .wb-like {
-    background-size: 20px auto;
+  background-size: 20px auto;
 }
 .wb-like.active {
-    background-image: url(demo/heart-filled.svg) !important;
+  background-image: url(demo/heart-filled.svg) !important;
 }
 ```
 
 Attach a control to the window toolbar:
+
 ```js
 winbox.addControl({
-    // the position index
-    index: 1,
-    // classname to apply styling
-    class: "wb-like",
-    // icon url when not specified via classname
-    image: "demo/heart.svg",
-    // click listener
-    click: function(event, winbox){
-        // the winbox instance will be passed as 2nd parameter
-        console.log(winbox.id);
-        // "this" refers to the button which was clicked:
-        this.classList.toggle("active");
-    }
+  // the position index
+  index: 1,
+  // classname to apply styling
+  class: "wb-like",
+  // icon url when not specified via classname
+  image: "demo/heart.svg",
+  // click listener
+  click: function (event, winbox) {
+    // the winbox instance will be passed as 2nd parameter
+    console.log(winbox.id);
+    // "this" refers to the button which was clicked:
+    this.classList.toggle("active");
+  },
 });
 ```
 
 <a name="winbox.removeControl"></a>
 Remove a control from the window toolbar:
+
 ```js
-winbox.removeControl("wb-like")
-      .removeControl("wb-min");
+winbox.removeControl("wb-like").removeControl("wb-min");
 ```
 
 <a name="template"></a>
+
 ## Custom Template (Layout)
 
 You can fully customize the WinBox window layout by providing a custom `template` via the config during creation. This way you can add new elements to the window or re-arrange them.
 
 This example will add a control button `.wb-custom` to the window toolbar by using a custom template along some CSS:
+
 ```css
 .wb-custom {
-    background-image: url(demo/icon-github.svg);
-    background-size: 17px auto;
+  background-image: url(demo/icon-github.svg);
+  background-size: 17px auto;
 }
 ```
 
 Create by using a custom template:
+
 ```js
 const template = document.createElement("div");
 template.innerHTML = `
@@ -1392,6 +1453,7 @@ new WinBox("Custom Template", { template });
 > The `.wb-drag` element needs to be existing when the user should be able to move the window by dragging the heading toolbar.
 
 <a name="customize"></a>
+
 ## Customize Window
 
 > Additionally, take a look into the <a href="https://github.com/nextapps-de/winbox/tree/master/src/css/themes">themes folder</a> to get some ideas how to customize the window.
@@ -1401,176 +1463,226 @@ The window boilerplate:
 <img src="https://cdn.jsdelivr.net/gh/nextapps-de/winbox@master/demo/boilerplate.svg?v=4" width="100%" alt="WinBox Boilerplate">
 
 Hide or disable specific icons:
+
 ```css
-.wb-min   { display: none }
-.wb-full  { display: none }
-.wb-max   { display: none }
-.wb-close { display: none }
+.wb-min {
+  display: none;
+}
+.wb-full {
+  display: none;
+}
+.wb-max {
+  display: none;
+}
+.wb-close {
+  display: none;
+}
 ```
 
 Modify a specific icon:
+
 ```css
 .wb-max {
-    background-image: url(src/img/max.png);
-    background-position: center;
-    background-size: 15px auto;
+  background-image: url(src/img/max.png);
+  background-position: center;
+  background-size: 15px auto;
 }
 ```
 
 Use black standard icons (useful for bright backgrounds):
+
 ```css
-.wb-control { filter: invert(1) }
+.wb-control {
+  filter: invert(1);
+}
 ```
 
 Modify or disable resizing areas on the window borders:
+
 ```css
 /* north */
-.wb-n  { display: none }
+.wb-n {
+  display: none;
+}
 
 /* east */
-.wb-e  { display: none }
+.wb-e {
+  display: none;
+}
 
 /* south */
-.wb-s  { display: none }
+.wb-s {
+  display: none;
+}
 
 /* west */
-.wb-w  { display: none }
+.wb-w {
+  display: none;
+}
 
 /* north-west */
-.wb-nw { display: none }
+.wb-nw {
+  display: none;
+}
 
 /* north-east */
-.wb-ne { display: none }
+.wb-ne {
+  display: none;
+}
 
 /* south-west */
-.wb-sw { display: none }
+.wb-sw {
+  display: none;
+}
 
 /* south-east */
-.wb-se { display: none }
+.wb-se {
+  display: none;
+}
 ```
 
 Modify or disable the window drop shadow:
+
 ```css
-.winbox { box-shadow: none }
+.winbox {
+  box-shadow: none;
+}
 ```
 
 Style the header title:
+
 ```css
-.wb-title { font-size: 12px }
+.wb-title {
+  font-size: 12px;
+}
 ```
 
 Style the titlebar icon:
+
 ```css
 .wb-icon {
-    width: 35px;
-    background-size: 35px 35px;
+  width: 35px;
+  background-size: 35px 35px;
 }
 ```
 
 Style the window background (frame):
+
 ```css
 .winbox {
-    background: linear-gradient(90deg, #ff00f0, #0050ff);
-    border-radius: 12px 12px 0 0;
+  background: linear-gradient(90deg, #ff00f0, #0050ff);
+  border-radius: 12px 12px 0 0;
 }
 ```
 
 Style the body of a window element and set the frame border:
+
 ```css
 .wb-body {
-    /* the width of window frame border: */
-    margin: 4px;
-    color: #fff;
-    background: #131820;
+  /* the width of window frame border: */
+  margin: 4px;
+  color: #fff;
+  background: #131820;
 }
 ```
 
 > The margin of `.wb-body` corresponds to the width of the window border.
 
 Apply styles when window is in "minimized" state:
+
 ```css
 .winbox {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 .winbox.min {
-    border-radius: 0;
+  border-radius: 0;
 }
 .winbox.min .windbox-title {
-    font-size: 12px;
+  font-size: 12px;
 }
 ```
 
 Apply styles when window is NOT in "minimized" state:
+
 ```css
 .winbox:not(.min) {
-    /* apply styles */
+  /* apply styles */
 }
 ```
 
 Apply styles when window is in "maximized" state:
+
 ```css
 .winbox {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 .winbox.max {
-    border-radius: 0;
+  border-radius: 0;
 }
 .winbox.max .wb-max {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 ```
 
 Apply styles when window is NOT in "maximized" state:
+
 ```css
 .winbox:not(.max) {
-    /* apply styles */
+  /* apply styles */
 }
 ```
 
 Apply styles when window is in "fullscreen" state:
+
 ```css
 .wb-body:fullscreen {
-    /* apply styles */
+  /* apply styles */
 }
 ```
 
 Apply styles when window is in "focus" state:
+
 ```css
 .winbox {
-    background: #999;
+  background: #999;
 }
 .winbox.focus {
-    background: #0050ff; 
+  background: #0050ff;
 }
 .winbox .wb-control {
-    display: none;
+  display: none;
 }
 .winbox.focus .wb-control {
-    display: block;
+  display: block;
 }
 ```
 
 Apply styles when window is NOT in "focus" state (the same logic from example above, but shorter):
+
 ```css
 .winbox:not(.focus) {
-    background: #999;
+  background: #999;
 }
 .winbox:not(.focus) .wb-control {
-    display: none;
+  display: none;
 }
 ```
 
 Apply styles when window is in "modal" state:
+
 ```css
-.winbox.modal .wb-close { display: none }
+.winbox.modal .wb-close {
+  display: none;
+}
 ```
 
 Customize the modal background overlay:
+
 ```css
 .winbox.modal:after {
-    background: #0d1117;
-    opacity: 0.5;
-    animation: none;
+  background: #0d1117;
+  opacity: 0.5;
+  animation: none;
 }
 ```
 
@@ -1578,20 +1690,20 @@ Customize the modal background overlay:
 
 ```css
 .wb-body::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 .wb-body::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 .wb-body::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #263040;
+  border-radius: 10px;
+  background: #263040;
 }
 .wb-body::-webkit-scrollbar-thumb:window-inactive {
-    background: #181f2a;
+  background: #181f2a;
 }
 .wb-body::-webkit-scrollbar-corner {
-    background: transparent;
+  background: transparent;
 }
 ```
 
@@ -1603,13 +1715,13 @@ Now you can add the two classes `"wb-hide"` and `"wb-show"` to any element to co
 
 ```html
 <body>
-    <main id="content">
-        <header class="wb-hide">Hide this header when in windowed mode</header>
-        <section>
-            <!-- page contents -->
-        </section>
-        <footer class="wb-show">Hide this footer when NOT in windowed mode</footer>
-    </main>
+  <main id="content">
+    <header class="wb-hide">Hide this header when in windowed mode</header>
+    <section>
+      <!-- page contents -->
+    </section>
+    <footer class="wb-show">Hide this footer when NOT in windowed mode</footer>
+  </main>
 </body>
 ```
 
@@ -1617,7 +1729,7 @@ The `display` property when using `"wb-show"` might not fit your needs. Please c
 
 ```js
 new WinBox({
-    mount: document.getElementById("content")
+  mount: document.getElementById("content"),
 });
 ```
 
@@ -1643,13 +1755,13 @@ npm i @types/winbox --save-dev
 Step 3: Import WinBox in a component
 
 ```ts
-import { Component } from '@angular/core';
-import 'winbox';
+import { Component } from "@angular/core";
+import "winbox";
 declare const WinBox: WinBox.WinBoxConstructor;
 
 @Component({
-  selector: 'my-app',
-  template: '<button (click)="openWindow()">Open Window</button>'
+  selector: "my-app",
+  template: '<button (click)="openWindow()">Open Window</button>',
 })
 export class AppComponent {
   openWindow() {
@@ -1664,7 +1776,6 @@ https://github.com/wobsoriano/vue-winbox
 
 It uses the native [teleport](https://v3.vuejs.org/api/built-in-components.html#teleport) component in Vue 3 and recommends https://github.com/LinusBorg/vue-simple-portal for Vue 2 users.
 
-
 ## WinBox on React application
 
 https://github.com/rickonono3/react-winbox
@@ -1674,11 +1785,13 @@ A React controlled component for WinBox.js, with full Reactful props and state. 
 ## Custom Builds
 
 Go to the root directory of WinBox and run:
+
 ```cmd
 npm install
 ```
 
 Perform a build:
+
 ```cmd
 npm run build
 ```

@@ -6,10 +6,16 @@
   left: 0;
   top: 0;
   background: #0050ff;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
   /* using transform make contents blur when applied and requires more gpu memory */
   //transition: width .3s, height .3s, transform .3s;
-  transition: width .3s, height .3s, left .3s, top .3s;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    left 0.3s,
+    top 0.3s;
   transition-timing-function: cubic-bezier(0.3, 1, 0.3, 1);
   //transform-origin: bottom center;
   /* contain "strict" does not make overflow contents selectable */
@@ -60,14 +66,14 @@ body > .wb-body{
 }
 */
 
-.wb-drag{
+.wb-drag {
   height: 100%;
   padding-left: 10px;
   cursor: move;
 }
 
-.wb-title{
-  font-family : Arial, sans-serif;
+.wb-title {
+  font-family: Arial, sans-serif;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
@@ -165,7 +171,7 @@ body > .wb-body{
   z-index: 2;
 }
 
-.wb-control{
+.wb-control {
   float: right;
   height: 100%;
   max-width: 100%;
@@ -229,7 +235,7 @@ body > .wb-body{
 .winbox.max .wb-body ~ div {
   pointer-events: none;
 }
-.winbox.max .wb-drag{
+.winbox.max .wb-drag {
   cursor: default;
 }
 
@@ -241,7 +247,7 @@ body > .wb-body{
   .wb-drag {
     cursor: default;
   }
-  .wb-body > *{
+  .wb-body > * {
     display: none;
   }
 }
@@ -259,14 +265,14 @@ body > .wb-body{
   margin: 0 !important;
 }
 
-.winbox iframe{
+.winbox iframe {
   position: absolute;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-body.wb-lock .winbox{
+body.wb-lock .winbox {
   will-change: left, top, width, height;
   transition: none;
 }
@@ -274,9 +280,9 @@ body.wb-lock iframe {
   pointer-events: none;
 }
 
-.winbox.modal{
-  &:before{
-    content: '';
+.winbox.modal {
+  &:before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -285,8 +291,8 @@ body.wb-lock iframe {
     background: inherit;
     border-radius: inherit;
   }
-  &:after{
-    content: '';
+  &:after {
+    content: "";
     position: absolute;
     top: -50vh;
     left: -50vw;
@@ -298,16 +304,16 @@ body.wb-lock iframe {
   }
   .wb-min,
   .wb-max,
-  .wb-full{
+  .wb-full {
     display: none;
   }
 }
 
 @keyframes wb-fade-in {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 0.85;
   }
 }

@@ -2,51 +2,46 @@
 
 var port = process.argv[2];
 
-if(!port){
-
-    if(/^win/.test(process.platform)){
-
-        port = 80;
-    }
-    else{
-
-        port = 8080;
-    }
+if (!port) {
+  if (/^win/.test(process.platform)) {
+    port = 80;
+  } else {
+    port = 8080;
+  }
 }
 
-var ws = require('web-servo');
+var ws = require("web-servo");
 
 ws.config({
-
-    "server": {
-        "port": port,
-        "dir": "/",
-        "exitOnError": false,
-        "ssl": {
-            "enabled": false,
-            "key": "",
-            "cert": ""
-        }
+  server: {
+    port: port,
+    dir: "/",
+    exitOnError: false,
+    ssl: {
+      enabled: false,
+      key: "",
+      cert: "",
     },
-    "page": {
-        "default": "index.html"
-    },
-    "methods": {
-        "allowed": [
-            "OPTIONS",
-            "GET",
-            "POST",
-            "HEAD",
-            "PUT",
-            "PATCH",
-            "DELETE"
-            //"COPY",
-            //"LINK",
-            //"UNLINK",
-            //"TRACE",
-            //"CONNECT"
-        ]
-    }
+  },
+  page: {
+    default: "index.html",
+  },
+  methods: {
+    allowed: [
+      "OPTIONS",
+      "GET",
+      "POST",
+      "HEAD",
+      "PUT",
+      "PATCH",
+      "DELETE",
+      //"COPY",
+      //"LINK",
+      //"UNLINK",
+      //"TRACE",
+      //"CONNECT"
+    ],
+  },
 });
 
 //ws.setConfigVar('server.port', port);
