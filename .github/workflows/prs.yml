@@ -11,6 +11,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 21
-      - run: npm ci
+      - run: npm install
       - name: Run lint
         run: npm run lint
