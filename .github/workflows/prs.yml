@@ -19,8 +19,6 @@ jobs:
   release-preview:
     name: Automated release preview
     needs: [lint]
-    permissions:
-      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: 📀 Checkout
