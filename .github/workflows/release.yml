@@ -35,8 +35,6 @@ jobs:
       - run: >
           npx
           -p "@semantic-release/commit-analyzer"
-          -p "@semantic-release/exec"
-          -p "@codedependant/semantic-release-docker"
           -p "@semantic-release/release-notes-generator"
           -p conventional-changelog-conventionalcommits
           -p semantic-release
